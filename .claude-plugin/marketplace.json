@@ -1,0 +1,15 @@
+{
+  "name": "Nicolas-Pintaux-Claude-Code-Marketplace",
+  "owner": {
+    "name": "Nicolas Pintaux",
+    "email": "npintaux@google.com"
+  },
+  "plugins": [
+    {
+      "name": "adversarial-review",
+      "source": "./plugins/adversarial-review",
+      "description": "Antigravity SDK-based agentic code reviewer",
+      "version": "1.0.0"
+    }
+  ]
+}

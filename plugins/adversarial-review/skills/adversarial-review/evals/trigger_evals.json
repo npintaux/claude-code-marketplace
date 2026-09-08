@@ -1,0 +1,24 @@
+{
+  "skill": "adversarial-review",
+  "queries": [
+    { "quadrant": "Q1_direct", "query": "Run an adversarial review on the code you just wrote.", "expect": "trigger", "split": "train" },
+    { "quadrant": "Q1_direct", "query": "Do a security review of this diff for vulnerabilities.", "expect": "trigger", "split": "train" },
+    { "quadrant": "Q1_direct", "query": "Review these changes from an attacker's perspective.", "expect": "trigger", "split": "val" },
+    { "quadrant": "Q1_direct", "query": "Check the new endpoint for injection and authz flaws.", "expect": "trigger", "split": "val" },
+
+    { "quadrant": "Q2_colloquial", "query": "You just finished the feature — now try to break it like a hacker would.", "expect": "trigger", "split": "train" },
+    { "quadrant": "Q2_colloquial", "query": "Before we call this done, poke holes in the code you generated.", "expect": "trigger", "split": "train" },
+    { "quadrant": "Q2_colloquial", "query": "Is this Flask app safe to expose? Look for anything exploitable.", "expect": "trigger", "split": "val" },
+    { "quadrant": "Q2_colloquial", "query": "Have something red-team the changes we just made.", "expect": "trigger", "split": "val" },
+
+    { "quadrant": "Q3_near_miss", "query": "Improve my adversarial machine-learning training loop.", "expect": "no-trigger", "note": "adversarial ML training, not a security code review", "split": "train" },
+    { "quadrant": "Q3_near_miss", "query": "Write a code review policy document for the team wiki.", "expect": "no-trigger", "note": "authoring docs, not running a review", "split": "train" },
+    { "quadrant": "Q3_near_miss", "query": "Explain what a SQL injection attack is.", "expect": "no-trigger", "note": "conceptual explanation, no code to review", "split": "val" },
+    { "quadrant": "Q3_near_miss", "query": "Review my resume for a security engineer role.", "expect": "no-trigger", "note": "keyword overlap only; not code", "split": "val" },
+
+    { "quadrant": "Q4_sibling_adjacent", "query": "Clean up this code for readability and style.", "expect": "no-trigger", "note": "style/quality review, not security — base agent or simplify skill", "split": "train" },
+    { "quadrant": "Q4_sibling_adjacent", "query": "Write unit tests for this module.", "expect": "no-trigger", "note": "ordinary coding task", "split": "train" },
+    { "quadrant": "Q4_sibling_adjacent", "query": "Update the README to document the new API.", "expect": "no-trigger", "note": "docs-only edit", "split": "val" },
+    { "quadrant": "Q4_sibling_adjacent", "query": "Optimize this function so it runs faster.", "expect": "no-trigger", "note": "performance, not security", "split": "val" }
+  ]
+}
